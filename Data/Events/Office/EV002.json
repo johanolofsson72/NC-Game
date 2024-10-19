@@ -1,0 +1,27 @@
+[
+    {
+      "x": 0,
+      "y": 8,
+      "id": "2",
+      "name": "EV002"
+    },
+    [
+        {
+            
+            
+            "trigger": "action_button",
+            "direction": "bottom",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              "TRANSFERT_PLAYER: {'name': 'MötesRoom', 'x': 19,'y': 8}"
+            ]
+        }
+    ]
+]

@@ -1,0 +1,27 @@
+[
+    {
+      "x": 8,
+      "y": 6,
+      "id": "3",
+      "name": "EV003"
+    },
+    [
+        {
+            
+            "character_hue": "172-Door03.png","pattern": 0,
+            "trigger": "contact",
+            "direction": "bottom",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              "TRANSFERT_PLAYER: {'name': 'Office', 'x': 4,'y': 14}"
+            ]
+        }
+    ]
+]

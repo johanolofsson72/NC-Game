@@ -1,0 +1,27 @@
+[
+    {
+      "x": 19,
+      "y": 9,
+      "id": "2",
+      "name": "EV002"
+    },
+    [
+        {
+            
+            
+            "trigger": "contact",
+            "direction": "bottom",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              "TRANSFERT_PLAYER: {'name': 'Office', 'x': 0,'y': 9}"
+            ]
+        }
+    ]
+]

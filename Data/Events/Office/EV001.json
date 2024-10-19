@@ -1,0 +1,27 @@
+[
+    {
+      "x": 4,
+      "y": 14,
+      "id": "1",
+      "name": "EV001"
+    },
+    [
+        {
+            
+            
+            "trigger": "contact",
+            "direction": "bottom",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              "TRANSFERT_PLAYER: {'name': 'Korriodor', 'x': 8,'y': 7}"
+            ]
+        }
+    ]
+]

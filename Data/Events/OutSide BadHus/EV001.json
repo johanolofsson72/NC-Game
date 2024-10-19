@@ -1,0 +1,27 @@
+[
+    {
+      "x": 15,
+      "y": 1,
+      "id": "1",
+      "name": "EV001"
+    },
+    [
+        {
+            
+            "character_hue": "One.png","pattern": 0,
+            "trigger": "action_button",
+            "direction": "right",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              
+            ]
+        }
+    ]
+]

@@ -1,0 +1,27 @@
+[
+    {
+      "x": 9,
+      "y": 4,
+      "id": "2",
+      "name": "EV002"
+    },
+    [
+        {
+            
+            "character_hue": "161-Small03.png","pattern": 0,
+            "trigger": "action_button",
+            "direction": "right",
+            "frequence": 16,
+            "type": "fixed",
+            "through": false,
+            "stop_animation": false,
+            "no_animation": false,
+            "direction_fix": false,
+            "alwaysOnTop": false,
+            "speed": 4,
+            "commands": [
+              "SHOW_TEXT: {'text': 'Rabbit!'}"
+            ]
+        }
+    ]
+]
