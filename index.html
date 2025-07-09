@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC-Game - Ett klassiskt RPG-spel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #gameCanvas {
+            border: 2px solid #444;
+            background-color: #000;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        
+        #gameContainer {
+            position: relative;
+        }
+        
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        #instructions {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            max-width: 600px;
+        }
+        
+        .button {
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #666;
+        }
+        
+        #debug {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>NC-Game</h1>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="debug">
+            <div>Spelare: <span id="playerPos">0, 0</span></div>
+            <div>Karta: <span id="currentMap">Ingen</span></div>
+            <div>FPS: <span id="fps">0</span></div>
+        </div>
+    </div>
+    
+    <div id="controls">
+        <button class="button" onclick="game.loadMap('Office')">Kontor</button>
+        <button class="button" onclick="game.loadMap('MotesRoom')">Mötesrum</button>
+        <button class="button" onclick="game.loadMap('Korriodor')">Korridor</button>
+        <button class="button" onclick="game.loadMap('OutSide BadHus')">Utanför Badhus</button>
+        <button class="button" onclick="game.loadMap('MAP001')">Karta 001</button>
+    </div>
+    
+    <div id="instructions">
+        <h3>Spelkontroller:</h3>
+        <p><strong>WASD</strong> eller <strong>Piltangenter</strong> - Förflyttar spelaren</p>
+        <p><strong>Mellanslag</strong> - Interagera med objekt</p>
+        <p>Klicka på knapparna ovan för att byta karta!</p>
+    </div>
+
+    <!-- Load game dependencies -->
+    <script src="Database/Animation.js"></script>
+    <script src="js/rpg-engine.js"></script>
+    <script>
+        // Initialize the game when page loads
+        let game;
+        window.addEventListener('load', () => {
+            game = new Rpg('gameCanvas');
+            game.init();
+        });
+    </script>
+</body>
+</html>
