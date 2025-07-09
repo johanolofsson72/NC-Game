@@ -11,6 +11,11 @@
 * ---------------------------------
 */
 
+// Initialize Database namespace
+if (typeof Database === 'undefined') {
+    var Database = {};
+}
+
 Database.animation = {
 
           
