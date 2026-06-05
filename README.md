@@ -1,71 +1,39 @@
 # NC-Game
 
-Ett klassiskt 2D RPG-spel återupplivat från 2012! Detta spel har nu gjorts spelbart med en modern HTML5 Canvas-baserad RPG-engine.
+A browser-based 2D tile RPG. The animation database dates back to 2012; in July 2025 a new HTML5 Canvas engine was bolted on top of the original map and event data so the thing actually runs in a modern browser. It is a tech demo more than a finished game. There are no graphics assets yet, so tiles and the player are drawn as flat colored squares with their tile IDs printed on them.
 
-## Hur man spelar
+## What it does
 
-### Starta spelet
-1. Öppna `index.html` i en webbläsare
-2. Eller kör en lokal server och navigera till projektmappen
+You move a square (the player) around tile maps with collision. Maps load from JSON files that came from the original 2012 game. Stepping next to an event marker (a green pulsing circle) and pressing space runs that event's commands. The only command type the engine currently handles is `TRANSFERT_PLAYER`, which warps you to another map at given coordinates. That is how the office, meeting room, corridor, and bathhouse-exterior maps connect.
 
-### Kontroller
-- **WASD** eller **Piltangenter** - Förflyttar spelaren
-- **Mellanslag** - Interagera med objekt/händelser
-- **Musklick på kartknapparna** - Byta mellan olika kartor
+Five maps are wired into the buttons in `index.html`: Office, MotesRoom (meeting room), Korriodor (corridor), OutSide BadHus (bathhouse exterior), and MAP001. If a map file fails to load, the engine falls back to a generated 15x20 bordered room so the page does not break.
 
-### Funktioner
-- ✅ Spelarrörelse med kollisionsdetektering
-- ✅ Kartladdning från original JSON-data
-- ✅ Händelsesystem (gröna pulsande cirklar)
-- ✅ Karttransfer mellan olika områden
-- ✅ Animationsdatabas från originalspelet
-- ✅ Realtids-debug information
-- ✅ 60 FPS spelupplevelse
+A debug overlay shows the player's tile position, the current map name, and FPS.
 
-### Tillgängliga kartor
-- **Kontor** - Kontorsområdet
-- **Mötesrum** - Mötesrummet
-- **Korridor** - Korridoren
-- **Utanför Badhus** - Badhusets uteområde
-- **Karta 001** - Allmän spelkarta
+## Tech stack
 
-## Teknisk information
+- HTML5 Canvas for rendering
+- Plain JavaScript (one ES6 class, no framework, no build step)
+- JSON map and event files under `Data/`
+- `Database/Animation.js`, the original 2012 animation data (about 260 KB), loaded but not yet played back
 
-### Arkitektur
-- **HTML5 Canvas** för rendering
-- **JavaScript ES6+** för spelengine
-- **JSON** för kart- och händelsedata
-- **Modular design** som följer original Database-mönstret
+## Getting started
 
-### Filer
-- `index.html` - Huvudsida med spelet
-- `js/rpg-engine.js` - Huvudspelengine
-- `Database/Animation.js` - Originalanimationsdatabas
-- `Data/Maps/` - JSON-kartdata från originalspelet
-- `Data/Events/` - JSON-händelsedata från originalspelet
+The engine uses `fetch` to load JSON, so opening `index.html` straight off the filesystem will not work in most browsers (CORS). Serve it over HTTP:
 
-### Utveckling
-För att köra spelet lokalt:
 ```bash
-# Starta en lokal HTTP-server
 python3 -m http.server 8000
-
-# Navigera till http://localhost:8000
+# then open http://localhost:8000
 ```
 
-## Originalspel från 2012
-Detta spel baseras på den ursprungliga NC-Game från 2012, med bevarad data och logik men en helt ny modern spelengine som gör det spelbart i moderna webbläsare.
+## Controls
 
-### Vad som återskapats:
-- ✅ Komplett kartdata och strukturer
-- ✅ Händelsesystem med TRANSFERT_PLAYER-funktionalitet  
-- ✅ Animationsdatabas med alla originalanimationer
-- ✅ Tile-baserad rendering med kollision
-- ✅ Spelarkontroller och rörelse
+- WASD or arrow keys: move one tile at a time
+- Space: interact with a nearby event
+- The map buttons under the canvas: jump straight to a map
 
-### Framtida förbättringar:
-- [ ] Grafiska tillgångar (PNG-filer för tiles och sprites)
-- [ ] Ljudeffekter och musik (OGG-filer)
-- [ ] Avancerade animationer och effekter
-- [ ] Dialogsystem
-- [ ] Inventory och föremålssystem
+## Status
+
+Playable but bare. Movement, collision, map switching, and the transfer-event system work. Not implemented: actual sprite/tile graphics, sound, animation playback (the `playAnimation` method is a stub), dialogue, and inventory. The map and event JSON still carry fields the engine ignores. Last real work was July 2025.
+
+Note: some folder and map names keep their original spellings (Korriodor, MotesRoom, MötesRoom, OutSide BadHus) because the engine looks them up by those exact strings.
